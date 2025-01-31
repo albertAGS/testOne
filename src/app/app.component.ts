@@ -69,14 +69,15 @@ export class AppComponent {
       lastBlock.start;
     const newBlock = {
       start,
-      digits: --lastBlock.digits,
-      letters: ++lastBlock.letters,
+      digits: lastBlock.digits - 1,
+      letters: lastBlock.letters + 1,
     };
     block.push(newBlock);
     return this.buildBlock(block);
   }
 
   public getNthPlate(n: number): string {
+    console.log(this.blocks);
     if (n < 0) return 'Invalid input';
 
     const block = this.blocks.find(
